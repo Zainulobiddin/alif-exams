@@ -1,0 +1,82 @@
+{
+  "columns": [
+    { "key": "id", "label": "ID" },
+    { "key": "name", "label": "Ном" },
+    { "key": "email", "label": "Почтаи электронӣ" },
+    { "key": "age", "label": "Синну сол" },
+    { "key": "city", "label": "Шаҳр" }
+  ],
+
+  "rows": [
+    {
+      "id": "1",
+      "name": "Алишер",
+      "email": "alisher@mail.com",
+      "age": 25,
+      "city": "Душанбе"
+    },
+    {
+      "id": "2",
+      "name": "Фарҳод",
+      "email": "farhod@mail.com",
+      "age": 30,
+      "city": "Хуҷанд"
+    },
+    {
+      "id": "3",
+      "name": "Саид",
+      "email": "said@mail.com",
+      "age": 28,
+      "city": "Бохтар"
+    },
+    {
+      "id": "4",
+      "name": "Муҳаммад",
+      "email": "muhammad@mail.com",
+      "age": 35,
+      "city": "Кӯлоб"
+    },
+    {
+      "id": "5",
+      "name": "Рустам",
+      "email": "rustam@mail.com",
+      "age": 22,
+      "city": "Истаравшан"
+    },
+    {
+      "id": "6",
+      "name": "Далер",
+      "email": "daler@mail.com",
+      "age": 27,
+      "city": "Душанбе"
+    },
+    {
+      "id": "7",
+      "name": "Комрон",
+      "email": "komron@mail.com",
+      "age": 31,
+      "city": "Хуҷанд"
+    },
+    {
+      "id": "8",
+      "name": "Шаҳром",
+      "email": "shahrom@mail.com",
+      "age": 29,
+      "city": "Панҷакент"
+    },
+    {
+      "id": "9",
+      "name": "Азиз",
+      "email": "aziz@mail.com",
+      "age": 24,
+      "city": "Бохтар"
+    },
+    {
+      "id": "10",
+      "name": "Фирӯз",
+      "email": "firuz@mail.com",
+      "age": 33,
+      "city": "Кӯлоб"
+    }
+  ]
+}
