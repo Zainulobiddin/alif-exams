@@ -11,7 +11,7 @@ export async function fetchRows({
   hasNext: boolean;
 }> {
   const res = await fetch(
-    `http://localhost:3000/rows?_page=${pageParam}&_per_page=20`
+    `http://localhost:3000/rows?_page=${pageParam}&_per_page=10`
   );
 
   if (!res.ok) {

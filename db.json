@@ -1,12 +1,26 @@
 {
   "columns": [
-    { "key": "id", "label": "ID" },
-    { "key": "name", "label": "Ном" },
-    { "key": "email", "label": "Почтаи электронӣ" },
-    { "key": "age", "label": "Синну сол" },
-    { "key": "city", "label": "Шаҳр" }
+    {
+      "key": "id",
+      "label": "ID"
+    },
+    {
+      "key": "name",
+      "label": "Ном"
+    },
+    {
+      "key": "email",
+      "label": "Почтаи электронӣ"
+    },
+    {
+      "key": "age",
+      "label": "Синну сол"
+    },
+    {
+      "key": "city",
+      "label": "Шаҳр"
+    }
   ],
-
   "rows": [
     {
       "id": "1",
@@ -357,6 +371,41 @@
       "email": "firuz@mail.com",
       "age": 33,
       "city": "Кӯлоб"
+    },
+    {
+      "id": "32",
+      "name": "dfvdf",
+      "email": "dfvdf@gmail.com",
+      "age": "23",
+      "city": "Душанбе"
+    },
+    {
+      "id": "89",
+      "name": "ои",
+      "email": "иҳги",
+      "age": "90",
+      "city": "олт"
+    },
+    {
+      "id": "",
+      "name": "",
+      "email": "",
+      "age": "",
+      "city": ""
+    },
+    {
+      "id": "fe19",
+      "name": "abdu",
+      "email": "abdu@gmail.com",
+      "age": "34",
+      "city": "Dushanbe"
+    },
+    {
+      "id": "318b",
+      "name": "buy",
+      "email": "ufu@gmail.com",
+      "age": "788",
+      "city": "ctuy"
     }
   ]
 }

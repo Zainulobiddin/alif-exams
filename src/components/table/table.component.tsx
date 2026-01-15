@@ -1,14 +1,16 @@
 "use client";
 
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { fetchColumns } from "../../api/fetcher-column.api";
 import { fetchRows } from "../../api/fetcher-row.api";
 import { TableSkeleton } from "../skeleton/table-skelton";
 import { TableScrollSkeleton } from "../skeleton/table-scroll-skeleton";
+import { AddRowModal } from "./add-modal";
 export function Table() {
   const { ref, inView } = useInView();
+  const [showAddModal, setShowAddModal] = useState(false);
 
   // Columns
   const {
@@ -65,6 +67,35 @@ export function Table() {
   // -------------------- Render Table --------------------
   return (
     <div className="p-4">
+      <div className="flex justify-between items-center mb-4 p-2">
+        <h2 className="text-xl text-blue-600 font-semibold italic">
+          Users Table
+        </h2>
+        <button
+          onClick={() => setShowAddModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors cursor-pointer"
+        >
+          Add
+        </button>
+      </div>
+      {showAddModal && columns && (
+        <AddRowModal
+          columns={columns}
+          onClose={() => setShowAddModal(false)}
+          onSubmit={async (newRow) => {
+            // Send POST request to backend
+            const res = await fetch("http://localhost:3000/rows", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(newRow),
+            });
+            if (!res.ok) throw new Error("Failed to add row");
+
+            // Refresh table data
+            // queryClient.invalidateQueries(["rows"]);
+          }}
+        />
+      )}
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
@@ -117,4 +148,6 @@ export function Table() {
       </div>
     </div>
   );
+  {
+  }
 }
