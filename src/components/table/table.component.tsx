@@ -5,13 +5,12 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { fetchColumns } from "../../api/fetcher-column.api";
 import { fetchRows } from "../../api/fetcher-row.api";
+import { TableSkeleton } from "../skeleton/table-skelton";
+import { TableScrollSkeleton } from "../skeleton/table-scroll-skeleton";
 export function Table() {
-  // ---------------------------------------------------------------------------
-  // variables
-  // ---------------------------------------------------------------------------
-
   const { ref, inView } = useInView();
 
+  // Columns
   const {
     data: columns,
     isLoading: isColumnsLoading,
@@ -22,6 +21,7 @@ export function Table() {
     staleTime: Number.POSITIVE_INFINITY,
   });
 
+  // Rows - Infinite Query
   const {
     data,
     fetchNextPage,
@@ -37,9 +37,7 @@ export function Table() {
       lastPage.hasNext ? lastPage.page + 1 : undefined,
   });
 
-  // ---------------------------------------------------------------------------
-  // effects
-  // ---------------------------------------------------------------------------
+  // ----------------Infinite Scroll Effect
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -50,15 +48,10 @@ export function Table() {
   const rows =
     (data && data.pages && data.pages.flatMap((page) => page.rows)) ?? [];
 
+  // -------------------- Loading / Error --------------------
+
   if (isColumnsLoading || isLoading) {
-    return (
-      <div className="flex items-center justify-center p-8">
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
+    return <TableSkeleton columnsCount={columns?.length ?? 5} rowsCount={11} />;
   }
 
   if (columnsError || error) {
@@ -69,7 +62,7 @@ export function Table() {
     );
   }
 
-  // ---------------------------------------------------------------------------
+  // -------------------- Render Table --------------------
   return (
     <div className="p-4">
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
@@ -111,12 +104,15 @@ export function Table() {
         </div>
 
         {isFetchingNextPage && (
-          <div className="flex items-center justify-center border-t border-gray-200 bg-gray-50 py-4">
-            <div className="flex items-center gap-2">
+          <>
+            <TableScrollSkeleton
+              columnsCount={columns?.length ?? 5}
+              rowsCount={3}
+            />
+            <div className="flex justify-center py-2">
               <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
-              <p className="text-sm text-gray-600">Loading...</p>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>
