@@ -34,14 +34,14 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
 
       // required
       if (!value.trim()) {
-        newErrors[col.key] = `${col.label} is required`;
+        newErrors[col.key] = `${col.label} обязательно`;
       }
 
       // email must be @gmail.com
       if (col.key === "email" && value) {
         const emailRegex = /^[^\s@]+@gmail\.com$/;
         if (!emailRegex.test(value)) {
-          newErrors[col.key] = "Email must end with @gmail.com";
+          newErrors[col.key] = "Email должен оканчиваться на @gmail.com";
         }
       }
 
@@ -49,7 +49,7 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
       if (col.key === "age" && value) {
         const age = Number(value);
         if (isNaN(age) || age < 0) {
-          newErrors[col.key] = "Age must be a positive number";
+          newErrors[col.key] = "Возраст должен быть положительным числом";
         }
       }
     });
@@ -78,7 +78,9 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
 
       onClose();
     } catch (err) {
-      setServerError("Server rejected the data. Please check and try again.");
+      setServerError(
+        "Сервер отклонил данные. Пожалуйста, проверьте и попробуйте снова."
+      );
     } finally {
       setLoading(false);
     }
