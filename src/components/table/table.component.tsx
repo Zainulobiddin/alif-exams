@@ -43,8 +43,6 @@ export function Table() {
       lastPage.hasNext ? lastPage.page + 1 : undefined,
   });
 
-  // Infinite Scroll Effect
-
   useEffect(() => {
     if (inView && hasNextPage) {
       fetchNextPage();
@@ -53,8 +51,6 @@ export function Table() {
 
   const rows =
     (data && data.pages && data.pages.flatMap((page) => page.rows)) ?? [];
-
-  // Loading / Error
 
   if (isColumnsLoading || isLoading) {
     return <TableSkeleton columnsCount={columns?.length ?? 5} rowsCount={11} />;
@@ -68,7 +64,6 @@ export function Table() {
     );
   }
 
-  // Render Table
   return (
     <div className="p-4">
       <div className="flex justify-between items-center p-2 mx-1 fixed top-0 left-3 right-3 shadow bg-white rounded-[3px]">
