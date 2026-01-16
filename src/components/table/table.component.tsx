@@ -83,16 +83,12 @@ export function Table() {
           columns={columns}
           onClose={() => setShowAddModal(false)}
           onSubmit={async (newRow) => {
-            // Send POST request to backend
             const res = await fetch("http://localhost:3000/rows", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(newRow),
             });
             if (!res.ok) throw new Error("Failed to add row");
-
-            // Refresh table data
-            // queryClient.invalidateQueries(["rows"]);
           }}
         />
       )}

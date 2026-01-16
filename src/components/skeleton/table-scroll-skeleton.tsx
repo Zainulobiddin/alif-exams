@@ -7,7 +7,7 @@ interface TableScrollSkeletonProps {
 
 export function TableScrollSkeleton({
   columnsCount = 5,
-  rowsCount = 3,
+  rowsCount = 10,
 }: TableScrollSkeletonProps) {
   return (
     <div className="border-t border-gray-200 bg-white">

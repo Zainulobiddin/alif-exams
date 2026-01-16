@@ -14,7 +14,6 @@ interface Props {
 }
 
 export function AddRowModal({ columns, onClose, onSubmit }: Props) {
-  // ❗ ID-ро намегирем
   const filteredColumns = columns.filter((c) => c.key !== "id");
 
   const [formData, setFormData] = useState<Record<string, string>>(
@@ -34,11 +33,11 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
       const value = formData[col.key];
 
       // required
-      if (col.required && !value) {
+      if (!value.trim()) {
         newErrors[col.key] = `${col.label} is required`;
       }
 
-      // email must be @mail.com
+      // email must be @gmail.com
       if (col.key === "email" && value) {
         const emailRegex = /^[^\s@]+@gmail\.com$/;
         if (!emailRegex.test(value)) {
