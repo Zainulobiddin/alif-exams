@@ -8,9 +8,13 @@ import { fetchRows } from "../../api/fetcher-row.api";
 import { TableSkeleton } from "../skeleton/table-skelton";
 import { TableScrollSkeleton } from "../skeleton/table-scroll-skeleton";
 import { AddRowModal } from "./add-modal";
+import Button from "../button/button";
+import { useQueryClient } from "@tanstack/react-query";
+
 export function Table() {
   const { ref, inView } = useInView();
   const [showAddModal, setShowAddModal] = useState(false);
+  const queryClient = useQueryClient();
 
   // Columns
   const {
@@ -23,7 +27,7 @@ export function Table() {
     staleTime: Number.POSITIVE_INFINITY,
   });
 
-  // Rows - Infinite Query
+  // Rows
   const {
     data,
     fetchNextPage,
@@ -39,7 +43,7 @@ export function Table() {
       lastPage.hasNext ? lastPage.page + 1 : undefined,
   });
 
-  // ----------------Infinite Scroll Effect
+  // Infinite Scroll Effect
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -50,7 +54,7 @@ export function Table() {
   const rows =
     (data && data.pages && data.pages.flatMap((page) => page.rows)) ?? [];
 
-  // -------------------- Loading / Error --------------------
+  // Loading / Error
 
   if (isColumnsLoading || isLoading) {
     return <TableSkeleton columnsCount={columns?.length ?? 5} rowsCount={11} />;
@@ -64,19 +68,14 @@ export function Table() {
     );
   }
 
-  // -------------------- Render Table --------------------
+  // Render Table
   return (
     <div className="p-4">
-      <div className="flex justify-between items-center mb-4 p-2">
+      <div className="flex justify-between items-center p-2 mx-1 fixed top-0 left-3 right-3 shadow bg-white rounded-[3px]">
         <h2 className="text-xl text-blue-600 font-semibold italic">
           Users Table
         </h2>
-        <button
-          onClick={() => setShowAddModal(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors cursor-pointer"
-        >
-          Add
-        </button>
+        <Button onClick={() => setShowAddModal(true)}> Add</Button>
       </div>
       {showAddModal && columns && (
         <AddRowModal
@@ -89,10 +88,11 @@ export function Table() {
               body: JSON.stringify(newRow),
             });
             if (!res.ok) throw new Error("Failed to add row");
+            await queryClient.invalidateQueries({ queryKey: ["rows"] });
           }}
         />
       )}
-      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow">
+      <div className="overflow-hidden rounded-lg border border-gray-200 bg-white  pt-12">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead className="bg-gray-50">
@@ -109,23 +109,25 @@ export function Table() {
             </thead>
 
             <tbody className="divide-y divide-gray-200 bg-white">
-              {rows.map((row) => (
-                <tr
-                  ref={ref}
-                  key={row.id}
-                  className="hover:bg-gray-50 transition-colors"
-                >
-                  {columns &&
-                    columns.map((col) => (
+              {rows.map((row, index) => {
+                const isLastRow = index === rows.length - 1;
+                return (
+                  <tr
+                    ref={isLastRow ? ref : undefined}
+                    key={row.id}
+                    className="hover:bg-gray-50 transition-colors "
+                  >
+                    {columns?.map((col) => (
                       <td
                         key={col.key}
                         className="px-6 py-4 text-sm text-gray-700"
                       >
-                        {row[col.key]}
+                        {row[col.key]}{" "}
                       </td>
                     ))}
-                </tr>
-              ))}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

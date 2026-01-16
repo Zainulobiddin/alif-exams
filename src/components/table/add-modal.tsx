@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../button/button";
 
 interface Column {
   key: string;
@@ -25,7 +26,6 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // ---------------- VALIDATION ----------------
   const validate = () => {
     const newErrors: Record<string, string> = {};
 
@@ -58,7 +58,6 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ---------------- HANDLERS ----------------
   const handleChange = (key: string, value: string) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => ({ ...prev, [key]: "" }));
@@ -70,33 +69,27 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
 
     setLoading(true);
     setServerError("");
-
+    setSuccess(false);
     try {
-      // 1️⃣ SEND TO SERVER
+      // SEND TO SERVER
       await onSubmit(formData);
 
-      // 2️⃣ SUCCESS
       setSuccess(true);
 
-      // 3️⃣ CLOSE MODAL AFTER SHORT TIME
-      setTimeout(() => {
-        onClose();
-      }, 1200);
+      onClose();
     } catch (err) {
-      // ❌ SERVER ERROR
       setServerError("Server rejected the data. Please check and try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  // ---------------- UI ----------------
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 animate-fadeIn">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 animate-scaleIn">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 modal-overlay">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 modal-content">
         <h3 className="text-lg font-semibold mb-4">Add New User</h3>
 
-        {/* SUCCESS MESSAGE */}
+        {/* SUCCESS */}
         {success && (
           <div className="mb-3 text-green-700 bg-green-100 p-2 rounded">
             ✅ Server accepted the data
@@ -137,22 +130,18 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
           <button
             onClick={onClose}
             disabled={loading}
-            className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+            className="px-4 py-2 btn rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
           >
             Cancel
           </button>
 
-          <button
+          <Button
             onClick={handleSubmit}
             disabled={loading}
-            className={`px-4 py-2 rounded text-white ${
-              loading
-                ? "bg-blue-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700"
-            }`}
+            className={`px-4 py-2 rounded text-white btn}`}
           >
-            {loading ? "Saving..." : "Submit"}
-          </button>
+            {loading ? "Loading..." : "Save"}
+          </Button>
         </div>
       </div>
     </div>
