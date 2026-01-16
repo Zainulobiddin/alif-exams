@@ -39,9 +39,15 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
 
       // email must be @gmail.com
       if (col.key === "email" && value) {
-        const emailRegex = /^[^\s@]+@gmail\.com$/;
-        if (!emailRegex.test(value)) {
-          newErrors[col.key] = "Email должен оканчиваться на @gmail.com";
+        const gmailRegex = /^[^\s@]+@gmail\.com$/;
+        const mailRegex = /^[^\s@]+@mail\.ru$/;
+        const yandexRegex = /^[^\s@]+@yandex\.ru$/;
+        if (
+          !gmailRegex.test(value) &&
+          !mailRegex.test(value) &&
+          !yandexRegex.test(value)
+        ) {
+          newErrors[col.key] = "Email введен неверно";
         }
       }
 
@@ -50,6 +56,13 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
         const age = Number(value);
         if (isNaN(age) || age < 0) {
           newErrors[col.key] = "Возраст должен быть положительным числом";
+        }
+      }
+
+      if (col.key === "phone" && value) {
+        const phone = Number(value.replace(/\D/g, "")); // убираем все кроме цифр
+        if (isNaN(phone) || phone <= 0) {
+          newErrors[col.key] = "Телефон должен быть положительным числом";
         }
       }
     });
@@ -94,7 +107,7 @@ export function AddRowModal({ columns, onClose, onSubmit }: Props) {
         {/* SUCCESS */}
         {success && (
           <div className="mb-3 text-green-700 bg-green-100 p-2 rounded">
-            ✅ Server accepted the data
+            ✅ Сервер принял данные
           </div>
         )}
 

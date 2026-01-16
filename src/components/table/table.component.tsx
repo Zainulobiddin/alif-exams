@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { fetchColumns } from "../../api/fetcher-column.api";
 import { fetchRows } from "../../api/fetcher-row.api";
-import { TableSkeleton } from "../skeleton/table-skelton";
+import { TableSkeleton } from "../skeleton/table-skeleton";
 import { TableScrollSkeleton } from "../skeleton/table-scroll-skeleton";
 import { AddRowModal } from "./add-modal";
 import Button from "../button/button";
 import { useQueryClient } from "@tanstack/react-query";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export function Table() {
   const { ref, inView } = useInView();
@@ -89,42 +90,55 @@ export function Table() {
       )}
       <div className="overflow-hidden rounded-lg border border-gray-200 bg-white  pt-12">
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead className="bg-gray-50">
-              <tr>
-                {columns!.map((col) => (
-                  <th
-                    key={col.key}
-                    className="border-b border-gray-200 px-6 py-3 text-left text-sm font-semibold text-gray-900"
-                  >
-                    {col.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
+          <InfiniteScroll
+            dataLength={rows.length} // сколько строк сейчас
+            next={fetchNextPage} // функция загрузки следующей страницы
+            hasMore={hasNextPage ?? false} // есть ли еще страницы
+            loader={
+              <TableScrollSkeleton
+                columnsCount={columns?.length ?? 5}
+                rowsCount={3}
+              />
+            }
+            scrollableTarget="scrollableDiv"
+          >
+            <table className="w-full border-collapse">
+              <thead className="bg-gray-50">
+                <tr>
+                  {columns!.map((col) => (
+                    <th
+                      key={col.key}
+                      className="border-b border-gray-200 px-6 py-3 text-left text-sm font-semibold text-gray-900"
+                    >
+                      {col.label}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
 
-            <tbody className="divide-y divide-gray-200 bg-white">
-              {rows.map((row, index) => {
-                const isLastRow = index === rows.length - 1;
-                return (
-                  <tr
-                    ref={isLastRow ? ref : undefined}
-                    key={row.id}
-                    className="hover:bg-gray-50 transition-colors "
-                  >
-                    {columns?.map((col) => (
-                      <td
-                        key={col.key}
-                        className="px-6 py-4 text-sm text-gray-700"
-                      >
-                        {row[col.key]}{" "}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+              <tbody className="divide-y divide-gray-200 bg-white">
+                {rows.map((row, index) => {
+                  const isLastRow = index === rows.length - 1;
+                  return (
+                    <tr
+                      ref={isLastRow ? ref : undefined}
+                      key={row.id}
+                      className="hover:bg-gray-50 transition-colors "
+                    >
+                      {columns?.map((col) => (
+                        <td
+                          key={col.key}
+                          className="px-6 py-4 text-sm text-gray-700"
+                        >
+                          {row[col.key]}{" "}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </InfiniteScroll>
         </div>
 
         {isFetchingNextPage && (

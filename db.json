@@ -2,28 +2,27 @@
   "columns": [
     {
       "key": "id",
-      "label": "ID",
-      "id": "b1a7"
+      "label": "ID"
     },
     {
       "key": "name",
-      "label": "Ном",
-      "id": "3d9d"
+      "label": "Ном"
     },
     {
       "key": "email",
-      "label": "Почтаи электронӣ",
-      "id": "b2b7"
+      "label": "Почтаи электронӣ"
     },
     {
       "key": "age",
-      "label": "Синну сол",
-      "id": "4d6b"
+      "label": "Синну сол"
     },
     {
       "key": "city",
-      "label": "Шаҳр",
-      "id": "a227"
+      "label": "Шаҳр"
+    },
+    {
+      "key": "phone",
+      "label": "Телефон"
     }
   ],
   "rows": [
@@ -32,476 +31,168 @@
       "name": "Алишер",
       "email": "alisher@mail.com",
       "age": 25,
-      "city": "Душанбе"
+      "city": "Душанбе",
+      "phone": "+992000000001"
     },
     {
       "id": "2",
       "name": "Фарҳод",
       "email": "farhod@mail.com",
       "age": 30,
-      "city": "Хуҷанд"
+      "city": "Хуҷанд",
+      "phone": "+992000000002"
     },
     {
       "id": "3",
       "name": "Саид",
       "email": "said@mail.com",
       "age": 28,
-      "city": "Бохтар"
+      "city": "Бохтар",
+      "phone": "+992000000003"
     },
     {
       "id": "4",
       "name": "Муҳаммад",
       "email": "muhammad@mail.com",
       "age": 35,
-      "city": "Кӯлоб"
+      "city": "Кӯлоб",
+      "phone": "+992000000004"
     },
     {
       "id": "5",
       "name": "Рустам",
       "email": "rustam@mail.com",
       "age": 22,
-      "city": "Истаравшан"
+      "city": "Истаравшан",
+      "phone": "+992000000005"
     },
     {
       "id": "6",
       "name": "Далер",
       "email": "daler@mail.com",
       "age": 27,
-      "city": "Душанбе"
+      "city": "Душанбе",
+      "phone": "+992000000006"
     },
     {
       "id": "7",
       "name": "Комрон",
       "email": "komron@mail.com",
       "age": 31,
-      "city": "Хуҷанд"
+      "city": "Хуҷанд",
+      "phone": "+992000000007"
     },
     {
       "id": "8",
       "name": "Шаҳром",
       "email": "shahrom@mail.com",
       "age": 29,
-      "city": "Панҷакент"
+      "city": "Панҷакент",
+      "phone": "+992000000008"
     },
     {
       "id": "9",
       "name": "Азиз",
       "email": "aziz@mail.com",
       "age": 24,
-      "city": "Бохтар"
+      "city": "Бохтар",
+      "phone": "+992000000009"
     },
     {
       "id": "10",
       "name": "Фирӯз",
       "email": "firuz@mail.com",
       "age": 33,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "77",
-      "name": "Алишер",
-      "email": "alisher@mail.com",
-      "age": 25,
-      "city": "Душанбе"
+      "city": "Кӯлоб",
+      "phone": "+992000000010"
     },
     {
       "id": "11",
-      "name": "Фарҳод",
-      "email": "farhod@mail.com",
-      "age": 30,
-      "city": "Хуҷанд"
+      "name": "Алишер",
+      "email": "alisher@mail.com",
+      "age": 25,
+      "city": "Душанбе",
+      "phone": "+992000000011"
     },
     {
       "id": "12",
-      "name": "Саид",
-      "email": "said@mail.com",
-      "age": 28,
-      "city": "Бохтар"
+      "name": "Фарҳод",
+      "email": "farhod@mail.com",
+      "age": 30,
+      "city": "Хуҷанд",
+      "phone": "+992000000012"
     },
     {
       "id": "13",
-      "name": "Муҳаммад",
-      "email": "muhammad@mail.com",
-      "age": 35,
-      "city": "Кӯлоб"
+      "name": "Саид",
+      "email": "said@mail.com",
+      "age": 28,
+      "city": "Бохтар",
+      "phone": "+992000000013"
     },
     {
       "id": "14",
-      "name": "Рустам",
-      "email": "rustam@mail.com",
-      "age": 22,
-      "city": "Истаравшан"
+      "name": "Муҳаммад",
+      "email": "muhammad@mail.com",
+      "age": 35,
+      "city": "Кӯлоб",
+      "phone": "+992000000014"
     },
     {
       "id": "15",
-      "name": "Далер",
-      "email": "daler@mail.com",
-      "age": 27,
-      "city": "Душанбе"
-    },
-    {
-      "id": "16",
-      "name": "Комрон",
-      "email": "komron@mail.com",
-      "age": 31,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "18",
-      "name": "Шаҳром",
-      "email": "shahrom@mail.com",
-      "age": 29,
-      "city": "Панҷакент"
-    },
-    {
-      "id": "19",
-      "name": "Азиз",
-      "email": "aziz@mail.com",
-      "age": 24,
-      "city": "Бохтар"
-    },
-    {
-      "id": "20",
-      "name": "Фирӯз",
-      "email": "firuz@mail.com",
-      "age": 33,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "21",
-      "name": "Алишер",
-      "email": "alisher@mail.com",
-      "age": 25,
-      "city": "Душанбе"
-    },
-    {
-      "id": "22",
-      "name": "Фарҳод",
-      "email": "farhod@mail.com",
-      "age": 30,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "23",
-      "name": "Саид",
-      "email": "said@mail.com",
-      "age": 28,
-      "city": "Бохтар"
-    },
-    {
-      "id": "24",
-      "name": "Муҳаммад",
-      "email": "muhammad@mail.com",
-      "age": 35,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "25",
       "name": "Рустам",
       "email": "rustam@mail.com",
       "age": 22,
-      "city": "Истаравшан"
+      "city": "Истаравшан",
+      "phone": "+992000000015"
     },
     {
-      "id": "26",
-      "name": "Далер",
-      "email": "daler@mail.com",
-      "age": 27,
-      "city": "Душанбе"
-    },
-    {
-      "id": "27",
-      "name": "Комрон",
-      "email": "komron@mail.com",
-      "age": 31,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "28",
-      "name": "Шаҳром",
-      "email": "shahrom@mail.com",
-      "age": 29,
-      "city": "Панҷакент"
-    },
-    {
-      "id": "29",
-      "name": "Азиз",
-      "email": "aziz@mail.com",
-      "age": 24,
-      "city": "Бохтар"
-    },
-    {
-      "id": "30",
-      "name": "Фирӯз",
-      "email": "firuz@mail.com",
-      "age": 33,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "31",
-      "name": "Алишер",
-      "email": "alisher@mail.com",
-      "age": 25,
-      "city": "Душанбе"
-    },
-    {
-      "id": "32",
-      "name": "Фарҳод",
-      "email": "farhod@mail.com",
-      "age": 30,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "33",
-      "name": "Саид",
-      "email": "said@mail.com",
-      "age": 28,
-      "city": "Бохтар"
-    },
-    {
-      "id": "34",
-      "name": "Муҳаммад",
-      "email": "muhammad@mail.com",
-      "age": 35,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "35",
-      "name": "Рустам",
-      "email": "rustam@mail.com",
-      "age": 22,
-      "city": "Истаравшан"
-    },
-    {
-      "id": "36",
-      "name": "Далер",
-      "email": "daler@mail.com",
-      "age": 27,
-      "city": "Душанбе"
-    },
-    {
-      "id": "37",
-      "name": "Комрон",
-      "email": "komron@mail.com",
-      "age": 31,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "38",
-      "name": "Шаҳром",
-      "email": "shahrom@mail.com",
-      "age": 29,
-      "city": "Панҷакент"
-    },
-    {
-      "id": "39",
-      "name": "Азиз",
-      "email": "aziz@mail.com",
-      "age": 24,
-      "city": "Бохтар"
-    },
-    {
-      "id": "40",
-      "name": "Фирӯз",
-      "email": "firuz@mail.com",
-      "age": 33,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "41",
-      "name": "Алишер",
-      "email": "alisher@mail.com",
-      "age": 25,
-      "city": "Душанбе"
-    },
-    {
-      "id": "42",
-      "name": "Фарҳод",
-      "email": "farhod@mail.com",
-      "age": 30,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "43",
-      "name": "Саид",
-      "email": "said@mail.com",
-      "age": 28,
-      "city": "Бохтар"
-    },
-    {
-      "id": "44",
-      "name": "Муҳаммад",
-      "email": "muhammad@mail.com",
-      "age": 35,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "45",
-      "name": "Рустам",
-      "email": "rustam@mail.com",
-      "age": 22,
-      "city": "Истаравшан"
-    },
-    {
-      "id": "46",
-      "name": "Далер",
-      "email": "daler@mail.com",
-      "age": 27,
-      "city": "Душанбе"
-    },
-    {
-      "id": "47",
-      "name": "Комрон",
-      "email": "komron@mail.com",
-      "age": 31,
-      "city": "Хуҷанд"
-    },
-    {
-      "id": "48",
-      "name": "Шаҳром",
-      "email": "shahrom@mail.com",
-      "age": 29,
-      "city": "Панҷакент"
-    },
-    {
-      "id": "49",
-      "name": "Азиз",
-      "email": "aziz@mail.com",
-      "age": 24,
-      "city": "Бохтар"
-    },
-    {
-      "id": "50",
-      "name": "Фирӯз",
-      "email": "firuz@mail.com",
-      "age": 33,
-      "city": "Кӯлоб"
-    },
-    {
-      "id": "32",
-      "name": "dfvdf",
-      "email": "dfvdf@gmail.com",
-      "age": "23",
-      "city": "Душанбе"
-    },
-    {
-      "id": "06c8",
-      "name": "34341",
-      "email": "sdfvsdf@gmail.com",
+      "id": "d8ec",
+      "name": "fvasd",
+      "email": "sdvasd@gmail.ru",
       "age": "34",
-      "city": "Sarazm"
+      "city": "dfvdf",
+      "phone": "sadvasd"
     },
     {
-      "id": "d5f3",
-      "name": "Karim",
-      "email": "karim@gmail.com",
-      "age": "25",
-      "city": "n. Rudaki"
-    },
-    {
-      "id": "cc6f",
-      "name": "sdfv",
-      "email": "asd@gmail.com",
-      "age": "23",
-      "city": "sdv"
-    },
-    {
-      "id": "3a14",
-      "name": "asdc",
-      "email": "sdvasd@gmail.com",
+      "id": "6885",
+      "name": "asdv",
+      "email": "adv@gmai.com",
       "age": "234",
-      "city": "dfvdfv"
+      "city": "adfva",
+      "phone": "adfv"
     },
     {
-      "id": "fa57",
-      "name": "dfv",
-      "email": "adsvadv@gmail.com",
+      "id": "42a7",
+      "name": "vsdf",
+      "email": "dfv@mail.ru",
       "age": "23",
-      "city": "asdv"
+      "city": "adv",
+      "phone": "sdv"
     },
     {
-      "id": "1a43",
-      "name": "evdfv",
-      "email": "dfvd@gmail.com",
-      "age": "23",
-      "city": "dfv"
-    },
-    {
-      "id": "9185",
-      "name": "мфукм",
-      "email": "вам@gmail.com",
-      "age": "23",
-      "city": "dfv"
-    },
-    {
-      "id": "f42b",
-      "name": "evewv",
-      "email": "erv@gmail.com",
-      "age": "23",
-      "city": "qer"
-    },
-    {
-      "id": "a334",
-      "name": "dvdf",
-      "email": "dfv@gmail.com",
-      "age": "23",
-      "city": "dfv"
-    },
-    {
-      "id": "4daa",
-      "name": "dfv",
-      "email": "dfv@gmail.com",
-      "age": "23",
-      "city": "sdfv"
-    },
-    {
-      "id": "bbbd",
-      "name": "sdc",
-      "email": "asdv@gmail.com",
-      "age": "34",
-      "city": "dfv"
-    },
-    {
-      "id": "60e5",
-      "name": "v",
-      "email": "df@gmail.com",
-      "age": "23",
-      "city": "adfv"
-    },
-    {
-      "id": "e175",
-      "name": "sdvs",
-      "email": "sv@gmail.com",
-      "age": "23",
-      "city": "dsvf"
-    },
-    {
-      "id": "8b0f",
-      "name": "sdv",
-      "email": "sdv@gmail.com",
-      "age": "23",
-      "city": "df"
-    },
-    {
-      "id": "750e",
-      "name": "укп",
-      "email": "ук@gmail.com",
-      "age": "23",
-      "city": "df"
-    },
-    {
-      "id": "ca42",
-      "name": "sdv",
-      "email": "sd@gmail.com",
-      "age": "23",
-      "city": "dfv"
-    },
-    {
-      "id": "3476",
+      "id": "7d27",
       "name": "sd",
-      "email": "asd@gmail.com",
+      "email": "sdcasd@mail.ru",
       "age": "23",
-      "city": "sd"
+      "city": "adfv",
+      "phone": "asdv"
+    },
+    {
+      "id": "af87",
+      "name": "қуа",
+      "email": "вам@gmail.ru",
+      "age": "34",
+      "city": "dfv",
+      "phone": "34134"
+    },
+    {
+      "id": "4155",
+      "name": "vdsf",
+      "email": "asd@mail.ru",
+      "age": "34",
+      "city": "dfv",
+      "phone": "34r34"
     }
   ]
 }
